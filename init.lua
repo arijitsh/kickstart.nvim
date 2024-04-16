@@ -236,6 +236,69 @@ require('lazy').setup({
   --
   --  This is equivalent to:
   --    require('Comment').setup({})
+  'sheerun/vim-polyglot', --  syntax highlighting for a LOT of filetypes
+  'vhdirk/vim-cmake', --  allows for :cmake command to set make config
+
+  'antoinemadec/coc-fzf', --  COC fuzzyfind (fzf)
+  {
+    'neoclide/coc.nvim',
+    branch = 'release',
+    -- do = "yarn install --frozen-lockfile",
+  },
+  {
+    'lervag/vimtex',
+    init = function()
+      -- Use init for configuration, don't use the more common "config".
+    end,
+  },
+  {
+    'Pocco81/auto-save.nvim',
+    config = function()
+      require('auto-save').setup {
+        -- your config goes here
+        -- or just leave it empty :)
+      }
+    end,
+  },
+  'neoclide/coc-eslint',
+  'neoclide/coc-tslint',
+  'neoclide/coc-tsserver', -- {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+  'neoclide/coc-prettier',
+  'neoclide/coc-css',
+  'neoclide/coc-snippets',
+  'neoclide/coc-lists', --  mru and stuff
+  'neoclide/coc-highlight', --  color highlighting
+  'fannheyward/coc-pyright',
+  'josa42/coc-go',
+  'nvim-lua/plenary.nvim',
+  'Shatur/neovim-tasks',
+  'airblade/vim-gitgutter', --  vim in for +/-/~ on the left hand side
+  'vim-airline/vim-airline', --  good status line
+  'vim-airline/vim-airline-themes',
+  'tpope/vim-fugitive', --  git in
+  'tpope/vim-commentary', --  comment out lines
+  'kshenoy/vim-signature', --  puts marks in the gutter
+  'Yggdroot/indentLine', --  nice vertical dashes  -- BUT it sets conceallevel to 2 which is WRONG and makes things disappear, like backticks in markdown. Nope.
+
+  -- NOTE: Plugins can also be added by using a table,
+  -- with the first argument being the link and the following
+  -- keys can be used to configure plugin behavior/loading/etc.
+  --
+  -- Use `opts = {}` to force a plugin to be loaded.
+  --
+  --  This is equivalent to:
+  --    require('Comment').setup({})
+
+  -- "gc" to comment visual regions/lines
+  {
+    'ibhagwan/fzf-lua',
+    -- optional for icon support
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      -- calling `setup` is optional for customization
+      require('fzf-lua').setup {}
+    end,
+  },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -407,6 +470,7 @@ require('lazy').setup({
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       'williamboman/mason.nvim',
+      'williamboman/nvim-lsp-installer',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
